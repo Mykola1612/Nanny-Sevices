@@ -1,0 +1,59 @@
+.hero_title {
+  font-weight: 500;
+  font-size: clamp(35px, 4.86vw, 70px);
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  color: #fbfbfb;
+}
+
+.hero_text {
+  font-weight: 400;
+  font-size: clamp(14px, 2vw, 28px);
+  line-height: 107%;
+  letter-spacing: -0.02em;
+  margin-bottom: 64px;
+  color: #fbfbfb;
+}
+
+.hero_content {
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 518px;
+  margin-left: clamp(24px, 6.666vw, 96px);
+}
+
+.hero_started__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 30px;
+  padding: 18px 50px;
+  width: 230px;
+  height: 60px;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.arrow {
+  display: block;
+  width: 15px;
+  height: 17px;
+}
+
+.experienced_nannies {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 284px;
+  height: 118px;
+  border-radius: 20px;
+  background-color: #fbfbfb;
+  z-index: 99;
+}

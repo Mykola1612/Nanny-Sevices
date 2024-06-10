@@ -1,0 +1,120 @@
+.header {
+  position: relative;
+  width: 100%;
+}
+
+.header_container_home {
+  width: 100%;
+  position: absolute;
+  z-index: 99999;
+  padding: clamp(6px, 1.388vw, 20px) clamp(8px, 6.527vw, 94px);
+  border-bottom: rgba(251, 251, 251, 0.4) 1px solid;
+}
+
+.header_container {
+  width: 100%;
+  position: absolute;
+  z-index: 99999;
+  padding: clamp(6px, 1.388vw, 20px) clamp(8px, 6.527vw, 94px);
+  background-color: #0957c3;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header_nav__home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 16px;
+}
+
+.nav_logo {
+  display: block;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: #fbfbfb;
+  flex: 1;
+}
+
+.nav_logo__home {
+  display: block;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: #fbfbfb;
+  flex: 1;
+}
+
+.nav_page__link {
+  padding: 14px 0;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.login {
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 30px;
+  padding: 14px 39px;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.register {
+  background: #0957c3;
+  border-radius: 30px;
+  padding: 14px 40px;
+  border: #0957c3;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.button_user__register___home {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button_user__register {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav_page {
+  display: flex;
+  column-gap: 40px;
+}
+
+.container_nav {
+  display: flex;
+  column-gap: clamp(1px, 6.388vw, 92px);
+  row-gap: 16px;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
