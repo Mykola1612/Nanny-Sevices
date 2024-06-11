@@ -28,11 +28,15 @@ const HomePage = ({
           </NavLink>
         </div>
         <div className={styles.experienced_nannies}>
-          <svg>
-            <use href={`${sprite}#`} />
-          </svg>
-          <p>Experienced nannies</p>
-          <p>15,000</p>
+          <button className={styles.experienced_check__button}>
+            <svg width="30px" height="30px">
+              <use href={`${sprite}#icon-fe_check`} />
+            </svg>
+          </button>
+          <div>
+            <p>Experienced nannies</p>
+            <p>15,000</p>
+          </div>
         </div>
       </div>
       <FormWrapper

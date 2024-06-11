@@ -56,4 +56,17 @@
   border-radius: 20px;
   background-color: #fbfbfb;
   z-index: 99;
+  display: flex;
+  padding: 32px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experienced_check__button {
+  padding: 0;
+  border: none;
+  border-radius: 13px;
+  width: 54px;
+  height: 54px;
+  background-color: #0957c3;
 }
