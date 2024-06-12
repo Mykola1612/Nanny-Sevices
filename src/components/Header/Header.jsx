@@ -65,6 +65,7 @@ export const Header = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
                         'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
                       );
                       setModalInfoIsOpen(true);
+                      document.body.classList.add('overflow-hidden');
                     }}
                   >
                     Log In
@@ -78,6 +79,7 @@ export const Header = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
                         'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
                       );
                       setModalInfoIsOpen(true);
+                      document.body.classList.add('overflow-hidden');
                     }}
                   >
                     Registration

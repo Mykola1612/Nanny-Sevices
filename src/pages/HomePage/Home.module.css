@@ -22,7 +22,7 @@
   position: absolute;
   z-index: 2;
   max-width: 518px;
-  margin-left: clamp(24px, 6.666vw, 96px);
+  margin-left: clamp(18px, 6.666vw, 96px);
 }
 
 .hero_started__button {
@@ -51,7 +51,7 @@
 .experienced_nannies {
   position: absolute;
   bottom: 50px;
-  right: 50px;
+  right: clamp(10px, 3.5vw, 50px);
   width: 284px;
   height: 118px;
   border-radius: 20px;
