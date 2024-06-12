@@ -11,8 +11,8 @@ const HomePage = ({
 }) => {
   console.log('modalInfoIsOpen: ', modalInfoIsOpen);
   return (
-    <>
-      <div className="home_container">
+    <div className={styles.box}>
+      <div className={styles.box_blue}>
         <div className={styles.hero_content}>
           <h1 className={styles.hero_title}>
             Make Life Easier for the Family:
@@ -34,11 +34,14 @@ const HomePage = ({
             </svg>
           </button>
           <div>
-            <p>Experienced nannies</p>
-            <p>15,000</p>
+            <p className={styles.experienced_nannies__text}>
+              Experienced nannies
+            </p>
+            <p className={styles.experienced_nannies__number}>15,000</p>
           </div>
         </div>
       </div>
+      <div className={styles.photo}></div>
       <FormWrapper
         isOpen={modalInfoIsOpen}
         isClose={() => {
@@ -51,7 +54,7 @@ const HomePage = ({
           <input type="text" placeholder="ghfhddsfzsrsdtrstr" color="red" />
         </form>
       </FormWrapper>
-    </>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 import SecondPage from 'pages/SecondPage/SecondPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
@@ -12,7 +12,7 @@ const test = import.meta.env.VITE_API_TEST;
 const App = () => {
   const [modalInfoIsOpen, setModalInfoIsOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
-  const [modalText, setmodalText] =useState("")
+  const [modalText, setmodalText] = useState('');
   console.log(modalInfoIsOpen);
 
   useEffect(() => {
@@ -45,8 +45,9 @@ const App = () => {
           }
         />
         <Route path="/nannies" element={<SecondPage />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="/" element={<Navigate to="/home" />} />
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };

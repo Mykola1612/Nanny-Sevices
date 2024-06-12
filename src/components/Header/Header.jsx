@@ -13,70 +13,80 @@ export const Header = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
   } else {
     root.style.setProperty('--padding_home', 'clamp(12px, 2.22vw, 32px)');
   }
-  console.log(location);
+
   useEffect(() => {
     setIsHome(location.pathname === '/home');
   }, [location.pathname]);
 
   return (
-    <header className={styles.header}>
+    <header>
       <div
         className={
-          isHome ? styles.header_container_home : styles.header_container
+          isHome ? styles.header__bg_color : styles.header__bg_color___blue
         }
       >
-        <nav className={isHome ? styles.header_nav__home : styles.header_nav}>
-          <NavLink
-            to="/home"
-            className={isHome ? styles.nav_logo__home : styles.nav_logo}
+        <div className={isHome ? styles.header_home : styles.header}>
+          <div
+            className={
+              isHome ? styles.header_container_home : styles.header_container
+            }
           >
-            Nanny.Services
-          </NavLink>
-          <div className={styles.container_nav}>
-            <div className={styles.nav_page}>
-              <NavLink to="/home" className={styles.nav_page__link}>
-                Home
-              </NavLink>
-              <NavLink to="/nannies" className={styles.nav_page__link}>
-                Nannies
-              </NavLink>
-            </div>
-            <div
-              className={
-                isHome
-                  ? styles.button_user__register___home
-                  : styles.button_user__register
-              }
+            <nav
+              className={isHome ? styles.header_nav__home : styles.header_nav}
             >
-              <button
-                type="button"
-                className={styles.login}
-                onClick={() => {
-                  setModalTitle('Log In');
-                  setmodalText(
-                    'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
-                  );
-                  setModalInfoIsOpen(true);
-                }}
+              <NavLink
+                to="/home"
+                className={isHome ? styles.nav_logo__home : styles.nav_logo}
               >
-                Log In
-              </button>
-              <button
-                type="button"
-                className={styles.register}
-                onClick={() => {
-                  setModalTitle('Registration');
-                  setmodalText(
-                    'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
-                  );
-                  setModalInfoIsOpen(true);
-                }}
-              >
-                Registration
-              </button>
-            </div>
+                Nanny.Services
+              </NavLink>
+              <div className={styles.container_nav}>
+                <div className={styles.nav_page}>
+                  <NavLink to="/home" className={styles.nav_page__link}>
+                    Home
+                  </NavLink>
+                  <NavLink to="/nannies" className={styles.nav_page__link}>
+                    Nannies
+                  </NavLink>
+                </div>
+                <div
+                  className={
+                    isHome
+                      ? styles.button_user__register___home
+                      : styles.button_user__register
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.login}
+                    onClick={() => {
+                      setModalTitle('Log In');
+                      setmodalText(
+                        'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
+                      );
+                      setModalInfoIsOpen(true);
+                    }}
+                  >
+                    Log In
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.register}
+                    onClick={() => {
+                      setModalTitle('Registration');
+                      setmodalText(
+                        'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
+                      );
+                      setModalInfoIsOpen(true);
+                    }}
+                  >
+                    Registration
+                  </button>
+                </div>
+              </div>
+            </nav>
           </div>
-        </nav>
+        </div>
       </div>
     </header>
   );
