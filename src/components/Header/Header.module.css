@@ -73,6 +73,7 @@
 }
 
 .nav_page__link {
+  font-weight: 400;
   padding: 14px 0;
   font-size: 16px;
   line-height: 125%;
