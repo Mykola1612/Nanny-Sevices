@@ -11,7 +11,9 @@ const SharedLayout = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
         setmodalText={setmodalText}
       />
       <Suspense fallback={null}>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
       </Suspense>
     </>
   );
