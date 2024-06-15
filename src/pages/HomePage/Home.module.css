@@ -119,10 +119,6 @@
   background-position: right center;
 }
 
-.form_sizes {
-  max-width: 438px;
-}
-
 .input_form__text {
   display: block;
   border: 1px solid rgba(17, 16, 28, 0.1);

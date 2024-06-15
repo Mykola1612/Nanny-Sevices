@@ -62,7 +62,7 @@ const HomePage = ({
         modalTitle={modalTitle}
         modalText={modalText}
       >
-        <form className={styles.form_sizes}>
+        <form>
           <input
             type="text"
             placeholder="Email"
@@ -84,7 +84,7 @@ const HomePage = ({
         modalTitle={modalTitle}
         modalText={modalText}
       >
-        <form className={styles.form_sizes}>
+        <form>
           <input
             type="text"
             placeholder="Name"

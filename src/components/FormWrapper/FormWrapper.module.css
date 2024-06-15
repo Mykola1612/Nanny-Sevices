@@ -60,3 +60,9 @@
   line-height: 125%;
   color: rgba(17, 16, 28, 0.5);
 }
+
+.modal_content {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 438px;
+}

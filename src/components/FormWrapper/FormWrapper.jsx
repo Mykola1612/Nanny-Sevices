@@ -7,20 +7,22 @@ const FormWrapper = ({ isOpen, isClose, modalTitle, modalText, children }) => {
       {isOpen === true && (
         <div className={styles.backdrop}>
           <div className={styles.modal}>
-            <button
-              className={styles.close_button}
-              onClick={() => {
-                isClose();
-                document.body.classList.remove('overflow-hidden');
-              }}
-            >
-              <svg className={styles.close_svg}>
-                <use href={`${sprite}#icon-cross`} />
-              </svg>
-            </button>
-            <h2 className={styles.modal_title}>{modalTitle}</h2>
-            <p className={styles.modal_text}>{modalText}</p>
-            {children}
+            <div className={styles.modal_content}>
+              <button
+                className={styles.close_button}
+                onClick={() => {
+                  isClose();
+                  document.body.classList.remove('overflow-hidden');
+                }}
+              >
+                <svg className={styles.close_svg}>
+                  <use href={`${sprite}#icon-cross`} />
+                </svg>
+              </button>
+              <h2 className={styles.modal_title}>{modalTitle}</h2>
+              <p className={styles.modal_text}>{modalText}</p>
+              {children}
+            </div>
           </div>
         </div>
       )}
