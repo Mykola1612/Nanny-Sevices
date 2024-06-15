@@ -3,7 +3,12 @@ import { NavLink, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
 
-export const Header = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
+export const Header = ({
+  setModalLogInIsOpen,
+  setModalRegistrationIsOpen,
+  setModalTitle,
+  setmodalText,
+}) => {
   const location = useLocation();
   const [isHome, setIsHome] = useState(false);
 
@@ -64,7 +69,7 @@ export const Header = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
                       setmodalText(
                         'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
                       );
-                      setModalInfoIsOpen(true);
+                      setModalLogInIsOpen(true);
                       document.body.classList.add('overflow-hidden');
                     }}
                   >
@@ -78,7 +83,7 @@ export const Header = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
                       setmodalText(
                         'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
                       );
-                      setModalInfoIsOpen(true);
+                      setModalRegistrationIsOpen(true);
                       document.body.classList.add('overflow-hidden');
                     }}
                   >

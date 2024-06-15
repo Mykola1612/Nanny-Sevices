@@ -5,7 +5,7 @@ const FormWrapper = ({ isOpen, isClose, modalTitle, modalText, children }) => {
   return (
     <>
       {isOpen === true && (
-        <div className={styles.modal_wrapper}>
+        <div className={styles.backdrop}>
           <div className={styles.modal}>
             <button
               className={styles.close_button}
@@ -14,7 +14,7 @@ const FormWrapper = ({ isOpen, isClose, modalTitle, modalText, children }) => {
                 document.body.classList.remove('overflow-hidden');
               }}
             >
-              <svg className={styles.close}>
+              <svg className={styles.close_svg}>
                 <use href={`${sprite}#icon-cross`} />
               </svg>
             </button>

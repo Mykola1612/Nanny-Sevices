@@ -2,14 +2,20 @@ import sprite from '../../assets/sprite.svg';
 import { NavLink } from 'react-router-dom';
 import styles from './Home.module.css';
 import FormWrapper from '../../components/FormWrapper/FormWrapper';
+import { animateScroll as scroll } from 'react-scroll';
 
 const HomePage = ({
   modalTitle,
   modalText,
-  modalInfoIsOpen,
-  setModalInfoIsOpen,
+  modalRegistrationIsOpen,
+  setModalRegistrationIsOpen,
+  setModalLogInIsOpen,
+  modalLogInIsOpen,
 }) => {
-  console.log('modalInfoIsOpen: ', modalInfoIsOpen);
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
       <div className={styles.box}>
@@ -21,7 +27,11 @@ const HomePage = ({
             <p className={styles.hero_text}>
               Find Babysitters Online for All Occasions
             </p>
-            <NavLink to="/nannies" className={styles.hero_started__button}>
+            <NavLink
+              to="/nannies"
+              className={styles.hero_started__button}
+              onClick={scrollToTop}
+            >
               Get started
               <svg className={styles.arrow}>
                 <use href={`${sprite}#icon-arrow`} />
@@ -45,15 +55,52 @@ const HomePage = ({
         <div className={styles.photo}></div>
       </div>
       <FormWrapper
-        isOpen={modalInfoIsOpen}
+        isOpen={modalLogInIsOpen}
         isClose={() => {
-          setModalInfoIsOpen(false);
+          setModalLogInIsOpen(false);
         }}
         modalTitle={modalTitle}
         modalText={modalText}
       >
-        <form>
-          <input type="text" placeholder="ghfhddsfzsrsdtrstr" color="red" />
+        <form className={styles.form_sizes}>
+          <input
+            type="text"
+            placeholder="Email"
+            className={styles.input_form__text}
+          />
+          <input
+            type="text"
+            placeholder="Password"
+            className={styles.input_form__text}
+          />
+          <button type="submit">Log In</button>
+        </form>
+      </FormWrapper>
+      <FormWrapper
+        isOpen={modalRegistrationIsOpen}
+        isClose={() => {
+          setModalRegistrationIsOpen(false);
+        }}
+        modalTitle={modalTitle}
+        modalText={modalText}
+      >
+        <form className={styles.form_sizes}>
+          <input
+            type="text"
+            placeholder="Name"
+            className={styles.input_form__text}
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            className={styles.input_form__text}
+          />
+          <input
+            type="text"
+            placeholder="Password"
+            className={styles.input_form__text}
+          />
+          <button type="submit">Sign Up</button>
         </form>
       </FormWrapper>
     </>

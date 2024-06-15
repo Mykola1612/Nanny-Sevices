@@ -2,11 +2,17 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
 
-const SharedLayout = ({ setModalInfoIsOpen, setModalTitle, setmodalText }) => {
+const SharedLayout = ({
+  setModalLogInIsOpen,
+  setModalRegistrationIsOpen,
+  setModalTitle,
+  setmodalText,
+}) => {
   return (
     <>
       <Header
-        setModalInfoIsOpen={setModalInfoIsOpen}
+        setModalRegistrationIsOpen={setModalRegistrationIsOpen}
+        setModalLogInIsOpen={setModalLogInIsOpen}
         setModalTitle={setModalTitle}
         setmodalText={setmodalText}
       />

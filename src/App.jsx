@@ -10,10 +10,10 @@ import HomePage from 'pages/HomePage/HomePage';
 const test = import.meta.env.VITE_API_TEST;
 
 const App = () => {
-  const [modalInfoIsOpen, setModalInfoIsOpen] = useState(false);
+  const [modalLogInIsOpen, setModalLogInIsOpen] = useState(false);
+  const [modalRegistrationIsOpen, setModalRegistrationIsOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalText, setmodalText] = useState('');
-  console.log(modalInfoIsOpen);
 
   useEffect(() => {
     const db = firebase.database();
@@ -27,7 +27,8 @@ const App = () => {
         path="/"
         element={
           <SharedLayout
-            setModalInfoIsOpen={setModalInfoIsOpen}
+            setModalRegistrationIsOpen={setModalRegistrationIsOpen}
+            setModalLogInIsOpen={setModalLogInIsOpen}
             setModalTitle={setModalTitle}
             setmodalText={setmodalText}
           />
@@ -37,10 +38,12 @@ const App = () => {
           path="/home"
           element={
             <HomePage
-              modalInfoIsOpen={modalInfoIsOpen}
+              modalLogInIsOpen={modalLogInIsOpen}
+              modalRegistrationIsOpen={modalRegistrationIsOpen}
               modalTitle={modalTitle}
               modalText={modalText}
-              setModalInfoIsOpen={setModalInfoIsOpen}
+              setModalLogInIsOpen={setModalLogInIsOpen}
+              setModalRegistrationIsOpen={setModalRegistrationIsOpen}
             />
           }
         />
