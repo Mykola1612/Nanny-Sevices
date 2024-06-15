@@ -22,7 +22,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/react_vite">
+    <BrowserRouter basename="/Nanny-Sevices">
       <App />
     </BrowserRouter>
   </React.StrictMode>
