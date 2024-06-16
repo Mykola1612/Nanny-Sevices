@@ -62,6 +62,7 @@ button {
 
 .overflow-hidden {
   overflow: hidden;
+  padding-left: 17px;
 }
 
 .input_form__text {
