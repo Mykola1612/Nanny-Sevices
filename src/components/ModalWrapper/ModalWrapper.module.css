@@ -20,7 +20,7 @@
   background-color: #fbfbfb;
   padding: 64px clamp(24px, 4.5vw, 64px);
   max-width: 565px;
-  max-height: 90vh;
+  max-height: 90%;
 }
 
 .close_button {
