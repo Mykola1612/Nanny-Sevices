@@ -1,5 +1,5 @@
 import sprite from '../../assets/sprite.svg';
-import styles from './FormWrapper.module.css';
+import styles from './ModalWrapper.module.css';
 
 const FormWrapper = ({ isOpen, isClose, modalTitle, modalText, children }) => {
   return (
@@ -11,8 +11,8 @@ const FormWrapper = ({ isOpen, isClose, modalTitle, modalText, children }) => {
               <button
                 className={styles.close_button}
                 onClick={() => {
-                  isClose();
                   document.body.classList.remove('overflow-hidden');
+                  isClose();
                 }}
               >
                 <svg className={styles.close_svg}>

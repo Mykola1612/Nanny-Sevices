@@ -1,8 +1,9 @@
 import sprite from '../../assets/sprite.svg';
 import { NavLink } from 'react-router-dom';
 import styles from './Home.module.css';
-import FormWrapper from '../../components/FormWrapper/FormWrapper';
+import FormWrapper from '../../components/ModalWrapper/ModalWrapper';
 import { animateScroll as scroll } from 'react-scroll';
+import { Registration } from '../../components/Registration/Registration';
 
 const HomePage = ({
   modalTitle,
@@ -63,46 +64,35 @@ const HomePage = ({
         modalText={modalText}
       >
         <form>
-          <input
-            type="text"
-            placeholder="Email"
-            className={styles.input_form__text}
-          />
-          <input
-            type="text"
-            placeholder="Password"
-            className={styles.input_form__text}
-          />
-          <button type="submit">Log In</button>
+          <ul className="form_ul_margin">
+            <li>
+              <input
+                type="text"
+                placeholder="Email"
+                className="input_form__text"
+              />
+            </li>
+            <li>
+              {' '}
+              <input
+                type="text"
+                placeholder="Password"
+                className="input_form__text"
+              />
+            </li>
+          </ul>
+
+          <button type="submit" className="submit_button">
+            Log In
+          </button>
         </form>
       </FormWrapper>
-      <FormWrapper
-        isOpen={modalRegistrationIsOpen}
-        isClose={() => {
-          setModalRegistrationIsOpen(false);
-        }}
-        modalTitle={modalTitle}
+      <Registration
+        modalRegistrationIsOpen={modalRegistrationIsOpen}
+        setModalRegistrationIsOpen={setModalRegistrationIsOpen}
         modalText={modalText}
-      >
-        <form>
-          <input
-            type="text"
-            placeholder="Name"
-            className={styles.input_form__text}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            className={styles.input_form__text}
-          />
-          <input
-            type="text"
-            placeholder="Password"
-            className={styles.input_form__text}
-          />
-          <button type="submit">Sign Up</button>
-        </form>
-      </FormWrapper>
+        modalTitle={modalTitle}
+      />
     </>
   );
 };

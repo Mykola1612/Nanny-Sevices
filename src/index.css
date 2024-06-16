@@ -63,3 +63,39 @@ button {
 .overflow-hidden {
   overflow: hidden;
 }
+
+.input_form__text {
+  display: block;
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  padding: 16px 18px;
+  width: 100%;
+  height: 52px;
+}
+
+.input_form__text::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+}
+
+.submit_button {
+  display: block;
+  margin-top: 40px;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  height: 52px;
+  background: #0957c3;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.form_ul_margin :not(:last-child) {
+  margin-bottom: 18px;
+}

@@ -69,8 +69,8 @@ export const Header = ({
                       setmodalText(
                         'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
                       );
-                      setModalLogInIsOpen(true);
                       document.body.classList.add('overflow-hidden');
+                      setModalLogInIsOpen(true);
                     }}
                   >
                     Log In
@@ -83,8 +83,8 @@ export const Header = ({
                       setmodalText(
                         'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
                       );
-                      setModalRegistrationIsOpen(true);
                       document.body.classList.add('overflow-hidden');
+                      setModalRegistrationIsOpen(true);
                     }}
                   >
                     Registration
