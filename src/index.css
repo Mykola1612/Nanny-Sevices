@@ -99,3 +99,21 @@ button {
 .form_ul_margin :not(:last-child) {
   margin-bottom: 18px;
 }
+
+.pkksadsadc {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 30px;
+  background-color: aquamarine;
+  min-height: 40px;
+  min-width: 150px;
+  right: 0;
+
+  top: -50px;
+  position: absolute;
+}
+
+.item_position {
+  position: relative;
+}

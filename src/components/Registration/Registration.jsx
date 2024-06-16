@@ -30,26 +30,25 @@ export const Registration = ({
         })}
       >
         <ul className="form_ul_margin">
-          <li>
+          <li className="item_position">
             <input
               type="text"
               {...register('Name', { required: 'This is required' })}
               placeholder="Name"
               className="input_form__text"
             />
-            <p>{errors.Name?.message}</p>
+            {/* <p >{errors.Name?.message}</p> */}
           </li>
-          <li>
-            {' '}
+          <li className="item_position">
             <input
               type="email"
               {...register('Email', { required: 'This is required' })}
               placeholder="Email"
               className="input_form__text"
             />
-            <p>{errors.Email?.message}</p>
+            {/* <p className="pkksadsadc"> {errors.Email?.message}</p> */}
           </li>
-          <li>
+          <li className="item_position">
             <PasswordInput
               data={{
                 ...register('Password', {
@@ -61,7 +60,7 @@ export const Registration = ({
                 }),
               }}
             />
-            <p>{errors.Password?.message}</p>
+            {/* <p className="pkksadsadc">{errors.Password?.message}</p> */}
           </li>
         </ul>
 

@@ -19,7 +19,7 @@ const HomePage = ({
 
   return (
     <>
-      <div className={styles.box}>
+      <section className={styles.box}>
         <div className={styles.box_blue}>
           <div className={styles.hero_content}>
             <h1 className={styles.hero_title}>
@@ -54,7 +54,7 @@ const HomePage = ({
           </div>
         </div>
         <div className={styles.photo}></div>
-      </div>
+      </section>
       <FormWrapper
         isOpen={modalLogInIsOpen}
         isClose={() => {
@@ -73,7 +73,6 @@ const HomePage = ({
               />
             </li>
             <li>
-              {' '}
               <input
                 type="text"
                 placeholder="Password"
