@@ -5,7 +5,7 @@ const FormWrapper = ({ isOpen, isClose, modalTitle, modalText, children }) => {
   return (
     <>
       {isOpen === true && (
-        <div className={styles.backdrop}>
+        <div className={`${styles.backdrop} ${isOpen ? `${styles.show}` : ''}`}>
           <div className={styles.modal}>
             <div className={styles.modal_content}>
               <button

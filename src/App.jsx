@@ -1,11 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
-import SecondPage from 'pages/SecondPage/SecondPage';
+import NanniesPage from 'pages/NanniesPage/NanniesPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { useEffect, useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import HomePage from 'pages/HomePage/HomePage';
+import PrivateRoute from './routes/PrivateRoute';
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 
 const test = import.meta.env.VITE_API_TEST;
 
@@ -47,7 +49,27 @@ const App = () => {
             />
           }
         />
-        <Route path="/nannies" element={<SecondPage />} />
+        <Route
+          path="/nannies"
+          element={
+            <NanniesPage
+              modalLogInIsOpen={modalLogInIsOpen}
+              modalRegistrationIsOpen={modalRegistrationIsOpen}
+              modalTitle={modalTitle}
+              modalText={modalText}
+              setModalLogInIsOpen={setModalLogInIsOpen}
+              setModalRegistrationIsOpen={setModalRegistrationIsOpen}
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoute>
+              <FavoritesPage />{' '}
+            </PrivateRoute>
+          }
+        />
         <Route path="/" element={<Navigate to="/home" />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />

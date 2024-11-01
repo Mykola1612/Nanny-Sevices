@@ -13,7 +13,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@reduxjs/toolkit": "^2.3.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
+    "axios": "^1.7.7",
     "firebase": "^10.11.0",
     "modern-normalize": "^2.0.0",
     "normalize.css": "^8.0.1",
@@ -22,6 +24,7 @@
     "react-hook-form": "^7.52.0",
     "react-router-dom": "^6.15.0",
     "react-scroll": "^1.9.0",
+    "redux": "^5.0.1",
     "styled-components": "^6.0.7",
     "vite-plugin-svgr": "^3.2.0"
   },

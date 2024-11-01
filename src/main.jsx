@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
@@ -6,6 +6,8 @@ import './index.css';
 import firebase from 'firebase/compat/app';
 
 import 'firebase/compat/database';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAfKJN4jneMMLkBZchbFIIgD0UFR6ZIyuE',
@@ -20,10 +22,24 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+export const Context = createContext(null);
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename="/Nanny-Sevices">
-      <App />
+      <Context.Provider
+        value={{
+          firebase,
+          auth,
+          firestore,
+        }}
+      >
+        <App />
+      </Context.Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

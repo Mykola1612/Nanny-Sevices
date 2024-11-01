@@ -1,9 +1,9 @@
 import sprite from '../../assets/sprite.svg';
 import { NavLink } from 'react-router-dom';
 import styles from './Home.module.css';
-import FormWrapper from '../../components/ModalWrapper/ModalWrapper';
 import { animateScroll as scroll } from 'react-scroll';
-import { Registration } from '../../components/Registration/Registration';
+import { Registration } from '../../components/AuthComponents/Registration/Registration';
+import { LogIn } from '../../components/AuthComponents/LogIn/LogIn';
 
 const HomePage = ({
   modalTitle,
@@ -55,37 +55,13 @@ const HomePage = ({
         </div>
         <div className={styles.photo}></div>
       </section>
-      <FormWrapper
-        isOpen={modalLogInIsOpen}
-        isClose={() => {
-          setModalLogInIsOpen(false);
-        }}
-        modalTitle={modalTitle}
+      <LogIn
+        modalLogInIsOpen={modalLogInIsOpen}
+        setModalLogInIsOpen={setModalLogInIsOpen}
         modalText={modalText}
-      >
-        <form>
-          <ul className="form_ul_margin">
-            <li>
-              <input
-                type="text"
-                placeholder="Email"
-                className="input_form__text"
-              />
-            </li>
-            <li>
-              <input
-                type="text"
-                placeholder="Password"
-                className="input_form__text"
-              />
-            </li>
-          </ul>
+        modalTitle={modalTitle}
+      />
 
-          <button type="submit" className="submit_button">
-            Log In
-          </button>
-        </form>
-      </FormWrapper>
       <Registration
         modalRegistrationIsOpen={modalRegistrationIsOpen}
         setModalRegistrationIsOpen={setModalRegistrationIsOpen}

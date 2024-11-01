@@ -9,6 +9,8 @@ export const Header = ({
   setModalTitle,
   setmodalText,
 }) => {
+  const authenticated = false;
+
   const location = useLocation();
   const [isHome, setIsHome] = useState(false);
 
@@ -53,43 +55,56 @@ export const Header = ({
                   <NavLink to="/nannies" className={styles.nav_page__link}>
                     Nannies
                   </NavLink>
+                  {authenticated && (
+                    <NavLink to="/favorites" className={styles.nav_page__link}>
+                      Favorites
+                    </NavLink>
+                  )}
                 </div>
-                <div
-                  className={
-                    isHome
-                      ? styles.button_user__register___home
-                      : styles.button_user__register
-                  }
-                >
-                  <button
-                    type="button"
-                    className={styles.login}
-                    onClick={() => {
-                      setModalTitle('Log In');
-                      setmodalText(
-                        'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
-                      );
-                      document.body.classList.add('overflow-hidden');
-                      setModalLogInIsOpen(true);
-                    }}
+                {!authenticated ? (
+                  <div
+                    className={
+                      isHome
+                        ? styles.button_user__register___home
+                        : styles.button_user__register
+                    }
                   >
-                    Log In
-                  </button>
-                  <button
-                    type="button"
-                    className={styles.register}
-                    onClick={() => {
-                      setModalTitle('Registration');
-                      setmodalText(
-                        'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
-                      );
-                      document.body.classList.add('overflow-hidden');
-                      setModalRegistrationIsOpen(true);
-                    }}
-                  >
-                    Registration
-                  </button>
-                </div>
+                    <button
+                      type="button"
+                      className={styles.login}
+                      onClick={() => {
+                        setModalTitle('Log In');
+                        setmodalText(
+                          'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'
+                        );
+                        document.body.classList.add('overflow-hidden');
+                        setModalLogInIsOpen(true);
+                      }}
+                    >
+                      Log In
+                    </button>
+                    <button
+                      type="button"
+                      className={styles.register}
+                      onClick={() => {
+                        setModalTitle('Registration');
+                        setmodalText(
+                          'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
+                        );
+                        document.body.classList.add('overflow-hidden');
+                        setModalRegistrationIsOpen(true);
+                      }}
+                    >
+                      Registration
+                    </button>
+                  </div>
+                ) : (
+                  <div>
+                    <button type="button" className={styles.login}>
+                      log aut
+                    </button>
+                  </div>
+                )}
               </div>
             </nav>
           </div>
