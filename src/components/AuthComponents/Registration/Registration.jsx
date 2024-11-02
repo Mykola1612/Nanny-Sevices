@@ -1,10 +1,9 @@
 import FormWrapper from '../../ModalWrapper/ModalWrapper';
 import { useForm } from 'react-hook-form';
 import { PasswordInput } from '../../PasswordInput/PasswordInput';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { Context } from '../../../main';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signUpThunk } from '../../../redux/auth/authOperations';
 
 export const Registration = ({
   modalTitle,
@@ -12,8 +11,9 @@ export const Registration = ({
   setModalRegistrationIsOpen,
   modalText,
 }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { auth } = useContext(Context);
+
   const {
     register,
     handleSubmit,
@@ -22,19 +22,16 @@ export const Registration = ({
   } = useForm();
 
   const onSubmit = (data) => {
-    // теперь функция принимает данные формы
     const { Email, Password } = data;
+    const userData = {
+      Email,
+      Password,
+    };
     console.log(Email);
-    createUserWithEmailAndPassword(auth, Email, Password)
-      .then((data) => {
-        console.log(data);
-        console.log(data.user.accessToken);
-        localStorage.setItem('token', data.user.accessToken);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    dispatch(signUpThunk(userData));
     navigate('/nannies');
+    document.body.classList.remove('overflow-hidden');
+    setModalRegistrationIsOpen(false);
     reset();
   };
 

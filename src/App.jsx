@@ -19,7 +19,6 @@ const App = () => {
 
   useEffect(() => {
     const db = firebase.database();
-    console.log(db);
   }, []);
 
   console.log(test);

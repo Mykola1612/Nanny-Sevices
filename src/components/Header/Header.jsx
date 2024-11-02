@@ -2,6 +2,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 // import sprite from 'assets/sprite.svg';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
+import { selectAuthAccessToken } from '../../redux/auth/authSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOutThunk } from '../../redux/auth/authOperations';
 
 export const Header = ({
   setModalLogInIsOpen,
@@ -9,7 +12,8 @@ export const Header = ({
   setModalTitle,
   setmodalText,
 }) => {
-  const authenticated = false;
+  const dispatch = useDispatch();
+  const accessToken = useSelector(selectAuthAccessToken);
 
   const location = useLocation();
   const [isHome, setIsHome] = useState(false);
@@ -55,13 +59,13 @@ export const Header = ({
                   <NavLink to="/nannies" className={styles.nav_page__link}>
                     Nannies
                   </NavLink>
-                  {authenticated && (
+                  {accessToken && (
                     <NavLink to="/favorites" className={styles.nav_page__link}>
                       Favorites
                     </NavLink>
                   )}
                 </div>
-                {!authenticated ? (
+                {!accessToken ? (
                   <div
                     className={
                       isHome
@@ -100,8 +104,12 @@ export const Header = ({
                   </div>
                 ) : (
                   <div>
-                    <button type="button" className={styles.login}>
-                      log aut
+                    <button
+                      type="button"
+                      className={styles.login}
+                      onClick={() => dispatch(signOutThunk())}
+                    >
+                      Log out
                     </button>
                   </div>
                 )}
