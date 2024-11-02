@@ -3,11 +3,16 @@ import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
+import { Provider } from 'react-redux';
 import firebase from 'firebase/compat/app';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import 'firebase/compat/database';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { store } from './redux/store.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAfKJN4jneMMLkBZchbFIIgD0UFR6ZIyuE',
@@ -25,7 +30,7 @@ firebase.initializeApp(firebaseConfig);
 
 export const Context = createContext(null);
 
-const auth = firebase.auth();
+export const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -34,11 +39,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Context.Provider
         value={{
           firebase,
-          auth,
+
           firestore,
         }}
       >
-        <App />
+        <Provider store={store}>
+          <ToastContainer />
+          <App />
+        </Provider>
       </Context.Provider>
     </BrowserRouter>
   </React.StrictMode>

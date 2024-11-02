@@ -1,10 +1,10 @@
 import FormWrapper from '../../ModalWrapper/ModalWrapper';
 import { useForm } from 'react-hook-form';
 import { PasswordInput } from '../../PasswordInput/PasswordInput';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Context } from '../../../main';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInThunk } from '../../../redux/auth/authOperations';
+import { useDispatch } from 'react-redux';
+// import { toast } from 'react-toastify';
 
 export const LogIn = ({
   modalTitle,
@@ -12,8 +12,8 @@ export const LogIn = ({
   setModalLogInIsOpen,
   modalText,
 }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { auth } = useContext(Context);
   const {
     register,
     handleSubmit,
@@ -23,17 +23,16 @@ export const LogIn = ({
 
   const onSubmit = (data) => {
     const { Email, Password } = data;
-    console.log(Email);
-    signInWithEmailAndPassword(auth, Email, Password)
-      .then((data) => {
-        console.log(data);
-        console.log(data.user.accessToken);
-        localStorage.setItem('token', data.user.accessToken);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
+    const formData = {
+      Email,
+      Password,
+    };
+
+    dispatch(signInThunk(formData));
     navigate('/nannies');
+    document.body.classList.remove('overflow-hidden');
+    setModalLogInIsOpen(false);
     reset();
   };
 

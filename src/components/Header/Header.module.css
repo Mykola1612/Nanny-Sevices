@@ -23,7 +23,7 @@
 .header_container_home {
   width: 100%;
   position: absolute;
-  z-index: 99999;
+  z-index: 999;
   padding: clamp(6px, 1.388vw, 20px) clamp(8px, 6.527vw, 94px);
   border-bottom: rgba(251, 251, 251, 0.4) 1px solid;
 }
@@ -31,7 +31,7 @@
 .header_container {
   width: 100%;
   position: absolute;
-  z-index: 99999;
+  z-index: 999;
   padding: clamp(6px, 1.388vw, 20px) clamp(8px, 6.527vw, 94px);
 }
 
