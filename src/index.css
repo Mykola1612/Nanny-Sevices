@@ -71,6 +71,7 @@ button {
   padding: 16px 18px;
   width: 100%;
   height: 52px;
+  padding-right: 44px;
 }
 
 .input_form__text::placeholder {
