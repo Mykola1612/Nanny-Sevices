@@ -58,6 +58,8 @@ const App = () => {
               modalText={modalText}
               setModalLogInIsOpen={setModalLogInIsOpen}
               setModalRegistrationIsOpen={setModalRegistrationIsOpen}
+              setModalTitle={setModalTitle}
+              setmodalText={setmodalText}
             />
           }
         />
