@@ -1,5 +1,3 @@
-import { initialState } from './authInitialState';
-
 export const handleFulfilledSignUp = (state, { payload }) => {
   state.isLoading = false;
   state.accessToken = payload.accessToken;

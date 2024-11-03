@@ -127,3 +127,124 @@ button {
 .item_position {
   position: relative;
 }
+
+.comments_section {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+.teacher_item {
+  margin-top: 32px;
+  padding: 24px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 24px;
+  background-color: #fbfbfb;
+  width: 1184px;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+
+.teacher_item__avatar {
+  border-radius: 15px;
+  width: 96px;
+  height: 96px;
+}
+
+.teacher_item__avatar___container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(9, 87, 195, 0.2);
+  border-radius: 30px;
+
+  min-width: 120px;
+  height: 120px;
+}
+
+.teacher_pricing__info {
+  display: flex;
+  column-gap: 32px;
+}
+
+.teacher_attention__information {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details_list {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details_item {
+  border-radius: 24px;
+  padding: 8px 16px;
+  background: #f3f3f3;
+  height: 40px;
+}
+
+.teacher_characters__list {
+  display: flex;
+}
+
+.read_more__button {
+  padding: 0;
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  background-color: transparent;
+  border: none;
+  color: #11101c;
+}
+
+.details_label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.details_item__characters {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.teacher_characters__item:not(:first-child)::before {
+  content: ', ';
+}
+
+.teacher_about__information {
+  margin: 0;
+  margin-top: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.teacher_title__item {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.teacher_name {
+  margin: 0;
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  color: #11101c;
+}
