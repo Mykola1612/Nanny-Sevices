@@ -184,3 +184,28 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.container_nav__authorizations___user {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+}
+
+.container_nav__user {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+}
+
+.container_nav__user___svg {
+  width: 40px;
+  height: 40px;
+}
+
+.container_nav__user___name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}

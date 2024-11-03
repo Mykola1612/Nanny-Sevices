@@ -12,6 +12,8 @@ const SecondPage = ({
   setModalRegistrationIsOpen,
   setModalLogInIsOpen,
   modalLogInIsOpen,
+  setModalAppointmentIsOpen,
+  modalAppointmentIsOpen,
   setModalTitle,
   setmodalText,
 }) => {
@@ -91,11 +93,16 @@ const SecondPage = ({
             teachers.map((teacher, index) => (
               <li key={index} className="teacher_item">
                 <div className="teacher_item__avatar___container">
-                  <img
-                    className="teacher_item__avatar"
-                    src={teacher.avatar_url}
-                    alt=""
-                  />
+                  <div className="teacher_item__avatar___active____position">
+                    <img
+                      className="teacher_item__avatar"
+                      src={teacher.avatar_url}
+                      alt={teacher.name}
+                    />
+                    <svg className="teacher_icon__active">
+                      <use href={`${sprite}#icon-active`} />
+                    </svg>
+                  </div>
                 </div>
                 <div>
                   <div className="teacher_attention__information">
@@ -103,26 +110,36 @@ const SecondPage = ({
                       <h2 className="teacher_title__item">Nanny</h2>
                       <p className="teacher_name">{teacher.name}</p>
                     </div>
-                    <ul className="teacher_pricing__info">
-                      <li>
-                        <svg width="20px" height="20px">
-                          <use href={`${sprite}#icon-map-pin`} />
-                        </svg>
-                        <p>{teacher.location}</p>
-                      </li>
-                      <li>
-                        <svg width="20px" height="20px">
-                          <use href={`${sprite}#icon-star`} />
-                        </svg>
+                    <div className="teacher_pricing__info___container">
+                      <ul className="teacher_pricing__info">
+                        <li className="teacher_pricing__info___flex">
+                          <svg className="teacher_icon__map">
+                            <use href={`${sprite}#icon-map-pin`} />
+                          </svg>
+                          <p>{teacher.location}</p>
+                        </li>
+                        <li className="teacher_pricing__info___flex">
+                          <svg width="16px" height="16px">
+                            <use href={`${sprite}#icon-star`} />
+                          </svg>
 
-                        <p>Rating: {teacher.rating}</p>
-                      </li>
-                      <li>
-                        <p>
-                          Price / 1 hour: <span>{teacher.price_per_hour}$</span>
-                        </p>
-                      </li>
-                    </ul>
+                          <p>Rating: {teacher.rating}</p>
+                        </li>
+                        <li>
+                          <p>
+                            Price / 1 hour:
+                            <span className="teacher_price__box">
+                              {teacher.price_per_hour}$
+                            </span>
+                          </p>
+                        </li>
+                      </ul>
+                      <button className="teacher_add__favorite___button">
+                        <svg className="teacher_add__favorite___icon">
+                          <use href={`${sprite}#icon-heart`} />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                   <ul className="details_list">
                     <li className="details_item">
@@ -154,14 +171,41 @@ const SecondPage = ({
                   </ul>
                   <p className="teacher_about__information">{teacher.about}</p>
 
-                  <div className={!isExpanded ? 'comments_section' : 'display'}>
+                  <div
+                    className={
+                      !isExpanded
+                        ? 'comments_section'
+                        : 'comments_section__active'
+                    }
+                  >
                     <ul className="comments">
                       {teacher.reviews !== 0 &&
                         teacher.reviews.map((review, index) => (
-                          <li key={index}>
-                            <h2>{review.reviewer}</h2>
-                            <p>{review.rating}</p>
-                            <p>{review.comment}</p>
+                          <li key={index} className="comment_item">
+                            <div className="teacher_review">
+                              <div className="teacher_review__avatar___container">
+                                {
+                                  <p className="teacher_review__avatar___text">
+                                    {review.reviewer.slice(0, 1)}
+                                  </p>
+                                }
+                              </div>
+                              <div className="teacher_review__name_and_rating">
+                                <h2 className="teacher_review__name">
+                                  {review.reviewer}
+                                </h2>
+                                <p className="teacher_review__text">
+                                  <svg width="16px" height="16px">
+                                    <use href={`${sprite}#icon-star`} />
+                                  </svg>
+                                  {Number(review.rating).toFixed(1)}
+                                </p>
+                              </div>
+                            </div>
+
+                            <p className="teacher_review__comment">
+                              {review.comment}
+                            </p>
                           </li>
                         ))}
                     </ul>
@@ -172,7 +216,7 @@ const SecondPage = ({
                           'Arranging a meeting with a caregiver for your child is the first step to creating a safe and comfortable environment. Fill out the form below so we can match you with the perfect care partner.'
                         );
                         document.body.classList.add('overflow-hidden');
-                        setModalRegistrationIsOpen(true);
+                        setModalAppointmentIsOpen(true);
                       }}
                     >
                       Make an appointment
@@ -195,9 +239,9 @@ const SecondPage = ({
         </ul>
         <button>Load more</button>
         <FormWrapper
-          isOpen={modalRegistrationIsOpen}
+          isOpen={modalAppointmentIsOpen}
           isClose={() => {
-            setModalRegistrationIsOpen(false);
+            setModalAppointmentIsOpen(false);
             reset();
           }}
           modalTitle={modalTitle}

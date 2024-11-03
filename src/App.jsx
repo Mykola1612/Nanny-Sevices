@@ -14,12 +14,13 @@ const test = import.meta.env.VITE_API_TEST;
 const App = () => {
   const [modalLogInIsOpen, setModalLogInIsOpen] = useState(false);
   const [modalRegistrationIsOpen, setModalRegistrationIsOpen] = useState(false);
+  const [modalAppointmentIsOpen, setModalAppointmentIsOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalText, setmodalText] = useState('');
 
-  useEffect(() => {
-    const db = firebase.database();
-  }, []);
+  // useEffect(() => {
+  //   const db = firebase.database();
+  // }, []);
 
   console.log(test);
   return (
@@ -58,6 +59,8 @@ const App = () => {
               modalText={modalText}
               setModalLogInIsOpen={setModalLogInIsOpen}
               setModalRegistrationIsOpen={setModalRegistrationIsOpen}
+              setModalAppointmentIsOpen={setModalAppointmentIsOpen}
+              modalAppointmentIsOpen={modalAppointmentIsOpen}
               setModalTitle={setModalTitle}
               setmodalText={setmodalText}
             />
@@ -67,7 +70,7 @@ const App = () => {
           path="/favorites"
           element={
             <PrivateRoute>
-              <FavoritesPage />{' '}
+              <FavoritesPage />
             </PrivateRoute>
           }
         />

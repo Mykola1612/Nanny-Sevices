@@ -21,14 +21,8 @@ export const Registration = ({
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    const { Email, Password } = data;
-    const userData = {
-      Email,
-      Password,
-    };
-    console.log(Email);
-    dispatch(signUpThunk(userData));
+  const onSubmit = (FormData) => {
+    dispatch(signUpThunk(FormData));
     navigate('/nannies');
     document.body.classList.remove('overflow-hidden');
     setModalRegistrationIsOpen(false);

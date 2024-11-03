@@ -3,15 +3,16 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import { toast } from 'react-toastify';
-import { auth } from '../../main';
-import { setAuthToken } from './authSlice';
+import { setAuthToken } from './authReducer';
+import auth from '../../firebase';
 
 export const signUpThunk = createAsyncThunk(
   'auth/signup',
   async (formData, thunkApi) => {
-    console.log(formData);
+    console.log(auth);
 
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -20,17 +21,22 @@ export const signUpThunk = createAsyncThunk(
         formData.Password
       );
 
-      setAuthToken(user.accessToken);
+      await updateProfile(user, {
+        displayName: formData.Name,
+      });
 
-      const data = {
-        uid: user.uid,
+      const newUser = {
+        id: user.uid,
+        name: user.displayName,
         email: user.email,
         accessToken: user.accessToken,
         refreshToken: user.stsTokenManager.refreshToken,
       };
-      console.log(user);
 
-      return data;
+      setAuthToken(user.accessToken);
+      // setUser(newUser);
+
+      return newUser;
     } catch (error) {
       toast.error(`We're sorry, something went wrong`);
       return thunkApi.rejectWithValue(error.message);

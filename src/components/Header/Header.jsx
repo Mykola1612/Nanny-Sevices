@@ -2,9 +2,14 @@ import { NavLink, useLocation } from 'react-router-dom';
 // import sprite from 'assets/sprite.svg';
 import styles from './Header.module.css';
 import { useEffect, useState } from 'react';
-import { selectAuthAccessToken } from '../../redux/auth/authSelectors';
+import {
+  selectAuthIsLoggedIn,
+  selectAuthUser,
+} from '../../redux/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOutThunk } from '../../redux/auth/authOperations';
+// import { OpenModalButton } from '../OpenModalButton/OpenModalButton';
+import sprite from '../../assets/sprite.svg';
 
 export const Header = ({
   setModalLogInIsOpen,
@@ -13,7 +18,10 @@ export const Header = ({
   setmodalText,
 }) => {
   const dispatch = useDispatch();
-  const accessToken = useSelector(selectAuthAccessToken);
+  const isLoggedIn = useSelector(selectAuthIsLoggedIn);
+  const user = useSelector(selectAuthUser);
+
+  console.log(user);
 
   const location = useLocation();
   const [isHome, setIsHome] = useState(false);
@@ -58,14 +66,14 @@ export const Header = ({
                 <NavLink to="/nannies" className={styles.nav_page__link}>
                   Nannies
                 </NavLink>
-                {accessToken && (
+                {isLoggedIn && (
                   <NavLink to="/favorites" className={styles.nav_page__link}>
                     Favorites
                   </NavLink>
                 )}
               </div>
               <div className={styles.container_nav}>
-                {!accessToken ? (
+                {!isLoggedIn ? (
                   <div
                     className={
                       isHome
@@ -103,9 +111,30 @@ export const Header = ({
                     >
                       Registration
                     </button>
+                    {/* <OpenModalButton
+                      setmodalText={setmodalText}
+                      setModalTitle={setModalTitle}
+                      buttonText={'Registration'}
+                      className={`${styles.register_base} ${
+                        isHome ? styles.register_home : styles.register
+                      }`}
+                      modalText={
+                        'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.'
+                      }
+                      modalTitle={'Registration'}
+                      setModalIsOpen={setModalRegistrationIsOpen}
+                    /> */}
                   </div>
                 ) : (
-                  <div>
+                  <div className={styles.container_nav__authorizations___user}>
+                    <div className={styles.container_nav__user}>
+                      <svg className={styles.container_nav__user___svg}>
+                        <use href={`${sprite}#icon-image `} />
+                      </svg>
+                      <p className={styles.container_nav__user___name}>
+                        {user.name}
+                      </p>
+                    </div>
                     <button
                       type="button"
                       className={styles.login}
