@@ -33,7 +33,7 @@ const authSlice = createSlice({
 const authConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken', 'refreshToken'],
+  whitelist: ['accessToken', 'refreshToken', 'isLoggedIn', 'user'],
 };
 
 export const { setToken } = authSlice.actions;

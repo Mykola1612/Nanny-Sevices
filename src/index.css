@@ -37,7 +37,7 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -132,8 +132,9 @@ button {
   display: none;
 }
 
-.display {
+.comments_section__active {
   display: block;
+  margin-top: 48px;
 }
 .teacher_item {
   margin-top: 32px;
@@ -166,8 +167,27 @@ button {
 }
 
 .teacher_pricing__info {
+  align-items: flex-start;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #11101c;
+
   display: flex;
   column-gap: 32px;
+}
+
+.teacher_pricing__info li {
+  position: relative;
+}
+
+.teacher_pricing__info li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -16px;
+  width: 1px;
+  height: 16px;
+  background-color: rgba(17, 16, 28, 0.2);
 }
 
 .teacher_attention__information {
@@ -247,4 +267,115 @@ button {
   font-size: 24px;
   line-height: 100%;
   color: #11101c;
+}
+
+.teacher_price__box {
+  color: #38cd3e;
+}
+
+.teacher_pricing__info___flex {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.teacher_icon__map {
+  fill: none;
+  stroke: #11101c;
+  width: 16px;
+  height: 16px;
+}
+
+.teacher_review__avatar___container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+
+  background: rgba(9, 87, 195, 0.2);
+}
+
+.teacher_review {
+  display: flex;
+  column-gap: 12px;
+}
+
+.comment_item:not(:first-child) {
+  margin-top: 25px;
+}
+
+.teacher_review__comment {
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.teacher_review__avatar___text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #0957c3;
+}
+
+.teacher_review__name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+}
+
+.teacher_review__name_and_rating {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.teacher_review__text {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: #11101c;
+}
+
+.teacher_icon__active {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.teacher_item__avatar___active____position {
+  position: relative;
+}
+
+.teacher_add__favorite___button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.teacher_add__favorite___icon {
+  pointer-events: none;
+  width: 26px;
+  height: 26px;
+  stroke: #11101c;
+  fill: none;
+}
+
+.teacher_pricing__info___container {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 48px;
 }

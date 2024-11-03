@@ -21,14 +21,7 @@ export const LogIn = ({
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    const { Email, Password } = data;
-
-    const formData = {
-      Email,
-      Password,
-    };
-
+  const onSubmit = (formData) => {
     dispatch(signInThunk(formData));
     navigate('/nannies');
     document.body.classList.remove('overflow-hidden');
